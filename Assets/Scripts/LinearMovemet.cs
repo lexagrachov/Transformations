@@ -1,13 +1,9 @@
 using UnityEngine;
 
-public class LinearMovemet : MonoBehaviour
+public class LinearMovemet : Transformation
 {
-    [SerializeField] private float _speed;
     [SerializeField] private bool _isReversal;
     [SerializeField] private float _reverseDistance;
-
-    private int _directionModifier = 1;
-    private float _timeInCurrentDirection;
 
     private void Start()
     {
@@ -22,11 +18,5 @@ public class LinearMovemet : MonoBehaviour
 
         if(_timeInCurrentDirection * _speed >= _reverseDistance && _isReversal)
             Turning();
-    }
-
-    private void Turning()
-    {
-        _directionModifier *= -1;
-        _timeInCurrentDirection = 0;
     }
 }

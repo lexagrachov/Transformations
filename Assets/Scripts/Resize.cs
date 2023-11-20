@@ -1,13 +1,10 @@
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
-public class Resize : MonoBehaviour
+public class Resize : Transformation
 {
-    [SerializeField] private float _speed;
     [SerializeField] private float _changedSize;
 
-    private int _directionModifier = 1;
-    private float _timeInCurrentDirection;
     private float _currentSize;
 
     private void Start()
@@ -25,11 +22,5 @@ public class Resize : MonoBehaviour
 
         if (_timeInCurrentDirection * _speed >= _changedSize)
             Turning();
-    }
-
-    private void Turning()
-    {
-        _directionModifier *= -1;
-        _timeInCurrentDirection = 0;
     }
 }
